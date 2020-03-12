@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h2>Log in</h2>
+
+  {% from "/_form.html" import render_field %}
+  <form action="{{ url_for('auth.log_in') }}" method=post>
+    <fieldset class="uk-fieldset">
+      {{ render_field(form.username, class="uk-input uk-form-width-medium") }}
+      {{ render_field(form.password, class="uk-input uk-form-width-medium") }}
+
+      <div class="uk-margin">
+        {{ form.submit }}
+        <button class="uk-button uk-button-primary">Log in</button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}

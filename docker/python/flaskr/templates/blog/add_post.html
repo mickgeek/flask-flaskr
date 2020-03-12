@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  {% if session.logged_in %}
+    <h2>Add Post</h2>
+
+    {% from "/_form.html" import render_field %}
+    <form action="{{ url_for('blog.add_post') }}" method=post>
+      <fieldset class="uk-fieldset">
+        {{ render_field(form.title, class="uk-input uk-form-width-medium") }}
+        {{ render_field(form.text, class="uk-textarea uk-form-width-large", cols=5) }}
+
+        <div class="uk-margin">
+          {{ form.submit }}
+          <button class="uk-button uk-button-primary">Add Post</button>
+        </div>
+      </fieldset>
+    </form>
+  {% endif %}
+{% endblock %}

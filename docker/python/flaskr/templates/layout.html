@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Flaskr</title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+      <!-- UIkit CSS -->
+      <link rel=stylesheet type=text/css href="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/css/uikit.min.css">
+      <link rel=stylesheet type=text/css href="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit.min.js">
+      <!-- UIkit JS -->
+      <link rel=stylesheet type=text/css href="https://cdn.jsdelivr.net/npm/uikit@3.3.1/dist/js/uikit-icons.min.js">
+    </head>
+  <body>
+    <nav class="uk-navbar-container uk-container-expand uk-margin" uk-navbar>
+      <div class="uk-navbar-center uk-container-small">
+        <div class="uk-navbar-left">
+          <div>
+            <ul class="uk-navbar-nav">
+              <li class="uk-active"><a href="{{ url_for('blog.show_posts') }}">Home</a></li>
+              {% if session.logged_in %}
+                <li class="uk-active"><a href="{{ url_for('blog.add_post') }}">Add Post</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+
+        <a class="uk-navbar-center uk-logo" href="#">Flaskr</a>
+
+        <div class="uk-navbar-right">
+          <div>
+            <ul class="uk-navbar-nav">
+              {% if not session.logged_in %}
+                <li><a href="{{ url_for('auth.log_in') }}">Log in</a></li>
+              {% else %}
+                <li><a href="{{ url_for('auth.log_out') }}">Log out</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="uk-container uk-container-xsmall uk-background-default">
+      {% for message in get_flashed_messages() %}
+        <div class="uk-alert-primary" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p class="uk-padding-small">{{ message }}</p>
+        </div>
+      {% endfor %}
+
+      {% block body %}{% endblock %}
+    </div>
+
+    <hr class="uk-divider-icon">
+
+    <div class="uk-container-expand uk-container-small uk-text-center uk-margin">
+      <div class="uk-column-1-2">
+        <p>&copy; Flaskr, 2020</p>
+        <p>Powered by <a href="https://flask.palletsprojects.com" target="_blank">Flask</a></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Error 401{% endblock %}
+{% block body %}
+  <h1>Error 401</h1>
+
+  <p>Sorry, you are unauthorized to access this page.</p>
+  <p><a href="{{ url_for('blog.show_posts') }}">Go to Homepage &raquo;</a></p>
+{% endblock %}
