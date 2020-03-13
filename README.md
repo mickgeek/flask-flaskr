@@ -16,5 +16,7 @@ Flaskr is a classic Python template (based on [the Flask framework](https://gith
 
 ### Tests
 
+Change the `TESTING` configuration value to `True` in the `docker/python/flaskr/config.py` file and execute the following commands:
+
 - `$ sudo docker-compose run --rm -w /home python python3 -m unittest -v flaskr.tests.functional.test_blog`
 - `$ sudo docker-compose run --rm -w /home python python3 -m unittest -v flaskr.tests.integration.test_database`

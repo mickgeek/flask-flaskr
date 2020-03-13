@@ -8,5 +8,5 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 USERNAME = 'admin'
 PASSWORD = 'admin'
 
-TESTING = True
+TESTING = False
 TEST_DATABASE_URI = 'postgresql://root:root@postgres/app_test'
