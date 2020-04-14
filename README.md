@@ -12,6 +12,7 @@ Flaskr is a classic Python template (based on [the Flask framework](https://gith
 
 - Clone the repository, copy `.env.example` to `.env` and `docker/.env.example` to `docker/.env` and modify them as you wish. You can also edit `docker/docker-compose.yml` if necessary.
 - Execute the command `vagrant up`.
+- Try going to the web address: http://192.168.33.10:8080.
 - For authorization, use the next bunch of username/password: `admin/admin`.
 
 ### Tests
